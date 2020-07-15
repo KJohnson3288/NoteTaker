@@ -43,7 +43,7 @@ app.post("/api/notes/", (req, res) => {
     var newNote = {
         title: req.body.title,
         text: req.body.text,
-        id: uuidv4
+        id: noteId
     };
 
     noteData.push(newNote);
@@ -53,8 +53,7 @@ app.post("/api/notes/", (req, res) => {
 //DELETE
 app.delete("/api/notes/", (req,res) => {
     
-      res.end(console.log("Deleted Successfully"));
-});
+})
 
 //Listner for PORT
 app.listen(PORT, () => {
