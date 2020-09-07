@@ -48,12 +48,24 @@ app.post("/api/notes/", (req, res) => {
 
     noteData.push(newNote);
     res.json(newNote);
-})
+
+});
 
 //DELETE
-app.delete("/api/notes/", (req,res) => {
-    
-})
+app.delete("/api/notes/:id", function(req, res){
+        
+    let id = req.params.id.toString();
+
+    for (i=0; i < noteData.length; i++){
+       
+        if (noteData[i].id == id){
+            
+            res.send(noteData[i]);
+
+            noteData.splice(i,1);
+        }
+    }
+});
 
 //Listner for PORT
 app.listen(PORT, () => {
